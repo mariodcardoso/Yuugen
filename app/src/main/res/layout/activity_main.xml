@@ -7,6 +7,12 @@
     android:background="@color/surface"
     app:layout_constraintBottom_toBottomOf="parent">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_home" />
+
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
@@ -34,8 +40,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/secondaryColor"
         android:src="@android:drawable/ic_menu_search"
+        app:backgroundTint="#AAA"
         app:layout_anchor="@id/bottom_app_bar"
         app:shapeAppearanceOverlay="@style/fab_rounded" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
