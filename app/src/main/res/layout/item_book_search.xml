@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/bg_book_search"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/img_book_cover"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/txt_book_title"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/placeholder_book_cover" />
+
+    <TextView
+        android:id="@+id/txt_book_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:breakStrategy="balanced"
+        android:maxLines="2"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txt_book_author"
+        app:layout_constraintLeft_toRightOf="@+id/img_book_cover"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Harry Potter e a Pedra Filosofal" />
+
+    <TextView
+        android:id="@+id/txt_book_author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/txt_book_released_year"
+        app:layout_constraintLeft_toLeftOf="@id/txt_book_title"
+        app:layout_constraintTop_toBottomOf="@+id/txt_book_title"
+        tools:text="J.K. Rowling" />
+
+    <TextView
+        android:id="@+id/txt_book_released_year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/txt_book_title"
+        app:layout_constraintTop_toBottomOf="@+id/txt_book_author"
+        tools:text="2000" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
