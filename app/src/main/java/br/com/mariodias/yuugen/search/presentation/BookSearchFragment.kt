@@ -1,4 +1,4 @@
-package br.com.mario.yuugen.search.presentation
+package br.com.mariodias.yuugen.search.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import br.com.mario.yuugen.R
-import br.com.mario.yuugen.databinding.FragmentBookSearchBinding
+import br.com.mariodias.yuugen.databinding.FragmentBookSearchBinding
 
 
 class BookSearchFragment : Fragment() {

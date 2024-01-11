@@ -1,10 +1,10 @@
-package br.com.mario.yuugen
+package br.com.mariodias.yuugen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import br.com.mario.yuugen.databinding.ActivityMainBinding
-import br.com.mario.yuugen.search.presentation.BookSearchFragment
+import br.com.mariodias.yuugen.databinding.ActivityMainBinding
+import br.com.mariodias.yuugen.search.presentation.BookSearchFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
                 when (menuItem.itemId) {
                     R.id.home -> replaceFragment(HomeFragment())
                     R.id.shelves -> replaceFragment(ShelvesFragment())
+                    R.id.item_3 -> throw RuntimeException("Test Crash")
                 }
                 true
             }
@@ -39,7 +40,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(binding.fragmentContainer.id, BookSearchFragment()).commit()
         }
     }
-
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(binding.fragmentContainer.id, fragment).commit()

@@ -3,14 +3,16 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
-    namespace = "br.com.mario.yuugen"
+    namespace = "br.com.mariodias.yuugen"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "br.com.mario.yuugen"
+        applicationId = "br.com.mariodias.yuugen"
         minSdk = 28
         targetSdk = 34
         versionCode = 1
@@ -62,6 +64,11 @@ dependencies {
 
     //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-analytics")
 
 
     //Navigation

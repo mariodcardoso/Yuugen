@@ -1,4 +1,4 @@
-package br.com.mario.yuugen.search.presentation
+package br.com.mariodias.yuugen.search.presentation
 
 data class BookSearch(
     val cover: Int,

@@ -1,4 +1,4 @@
-package br.com.mario.yuugen
+package br.com.mariodias.yuugen
 
 import org.junit.Test
 

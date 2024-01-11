@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "521461558301",
+    "project_id": "yuugen-70069",
+    "storage_bucket": "yuugen-70069.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521461558301:android:290678f0a076fd28ec2af4",
+        "android_client_info": {
+          "package_name": "br.com.mariodias.yuugen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrwivwRrOIoIMjannKn0QzWVbIpsddLW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
