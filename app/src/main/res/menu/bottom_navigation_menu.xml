@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/shelves"
+        android:icon="@drawable/ic_shelves"
+        android:title="@string/shelves" />
+
+    <item
+        android:id="@+id/placeholder"
+        android:title="" />
+
+    <item
+        android:id="@+id/item_3"
+        android:icon="@drawable/ic_construction"
+        android:title="@string/maintenance" />
+
+    <item
+        android:id="@+id/item_4"
+        android:icon="@drawable/ic_construction"
+        android:title="@string/maintenance" />
+
+</menu>

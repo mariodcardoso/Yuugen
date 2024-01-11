@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Light Theme -->
+    <color name="primaryColor">#fcd1d7</color>
+    <color name="onPrimaryColor">#ffe7de</color>
+    <color name="secondaryColor">#ffc2c2</color>
+    <color name="tertiaryColor">#505477</color>
+    <color name="surface">#fde6ec</color>
+
+
+
 </resources>
