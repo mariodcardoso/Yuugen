@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavView()
         setupFab()
 
-        replaceFragment(BookSearchFragment())
+        replaceFragment(HomeFragment())
 
     }
 
@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity() {
             background = null
             menu.getItem(2).isEnabled = false
             setOnItemSelectedListener { menuItem ->
+                binding.fabSearch.isEnabled = true
                 when (menuItem.itemId) {
                     R.id.home -> replaceFragment(HomeFragment())
                     R.id.shelves -> replaceFragment(ShelvesFragment())
-                    R.id.item_3 -> throw RuntimeException("Test Crash")
                 }
                 true
             }
@@ -36,8 +36,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupFab() {
-        binding.fabSearch.setOnClickListener {
+        binding.fabSearch.setOnClickListener {fabSearch ->
             supportFragmentManager.beginTransaction().replace(binding.fragmentContainer.id, BookSearchFragment()).commit()
+            fabSearch.isEnabled = false
+
         }
     }
 

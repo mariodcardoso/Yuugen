@@ -17,6 +17,7 @@
         android:iconifiedByDefault="false"
         android:queryBackground="@null"
         android:queryHint="Search..."
+        android:focusable="true"
         android:searchHintIcon="@null" />
 
     <androidx.recyclerview.widget.RecyclerView
