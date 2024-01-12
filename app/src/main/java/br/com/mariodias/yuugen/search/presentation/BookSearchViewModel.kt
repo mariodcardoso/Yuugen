@@ -1,11 +1,15 @@
 package br.com.mariodias.yuugen.search.presentation
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.mariodias.yuugen.search.database.BookSearchResult
-import br.com.mariodias.yuugen.search.database.BookSearchResultService
+import br.com.mariodias.yuugen.search.network.BookSearchResult
+import br.com.mariodias.yuugen.search.network.BookSearchResultService
+import br.com.mariodias.yuugen.shelves.data.ShelvesDao
+import br.com.mariodias.yuugen.shelves.data.ShelvesEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -30,6 +34,11 @@ class BookSearchViewModel : ViewModel() {
             }
 
         }
+    }
+
+    fun addBookOnShelves(bookInfo: ShelvesEntity) {
+//        shelvesDao.insert(bookInfo)
+        Timber.i("MDCN - Livro inserido")
     }
 
 }

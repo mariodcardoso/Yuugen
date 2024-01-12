@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import br.com.mariodias.yuugen.databinding.ActivityMainBinding
+import br.com.mariodias.yuugen.home.HomeFragment
 import br.com.mariodias.yuugen.search.presentation.BookSearchFragment
+import br.com.mariodias.yuugen.shelves.presentation.ShelvesFragment
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package br.com.mariodias.yuugen
+package br.com.mariodias.yuugen.base
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

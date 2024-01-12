@@ -1,7 +1,6 @@
-package br.com.mariodias.yuugen.search.database
+package br.com.mariodias.yuugen.search.network
 
 import com.google.gson.annotations.SerializedName
-import java.net.URL
 
 
 data class BookSearchResult(

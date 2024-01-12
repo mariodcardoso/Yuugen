@@ -9,14 +9,15 @@ import android.widget.SearchView.OnQueryTextListener
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.mariodias.yuugen.databinding.FragmentBookSearchBinding
+import br.com.mariodias.yuugen.shelves.data.ShelvesEntity
 
 
-class BookSearchFragment : Fragment() {
+class BookSearchFragment : Fragment(), OnBookSearchClickListener {
 
     private lateinit var binding: FragmentBookSearchBinding
     private val viewModel by viewModels<BookSearchViewModel>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentBookSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -24,10 +25,8 @@ class BookSearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.searchView.setOnQueryTextListener(object : OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
+        binding.searchView.setOnQueryTextListener(object : OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?) = false
 
             override fun onQueryTextChange(query: String?): Boolean {
                 query?.let { viewModel.searchBooks(query) }
@@ -37,10 +36,17 @@ class BookSearchFragment : Fragment() {
 
         viewModel.items.observe(viewLifecycleOwner) { books ->
             binding.rcvSearch.apply {
-                adapter = BookSearchAdapter(books)
+                adapter = BookSearchAdapter(books, this@BookSearchFragment)
                 layoutManager = LinearLayoutManager(activity)
             }
         }
-
     }
+
+    override fun onAddBookClick(bookInfo: ShelvesEntity) {
+        viewModel.addBookOnShelves(bookInfo)
+    }
+}
+
+interface OnBookSearchClickListener {
+    fun onAddBookClick(title: ShelvesEntity)
 }

@@ -1,4 +1,4 @@
-package br.com.mariodias.yuugen.search.database
+package br.com.mariodias.yuugen.search.network
 
 import retrofit2.Response
 import retrofit2.Retrofit
