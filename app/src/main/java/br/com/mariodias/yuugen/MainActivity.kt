@@ -7,7 +7,9 @@ import br.com.mariodias.yuugen.databinding.ActivityMainBinding
 import br.com.mariodias.yuugen.home.HomeFragment
 import br.com.mariodias.yuugen.search.presentation.BookSearchFragment
 import br.com.mariodias.yuugen.shelves.presentation.ShelvesFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }

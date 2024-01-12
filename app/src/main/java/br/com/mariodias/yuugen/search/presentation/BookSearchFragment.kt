@@ -10,8 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.mariodias.yuugen.databinding.FragmentBookSearchBinding
 import br.com.mariodias.yuugen.shelves.data.ShelvesEntity
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class BookSearchFragment : Fragment(), OnBookSearchClickListener {
 
     private lateinit var binding: FragmentBookSearchBinding
