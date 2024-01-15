@@ -1,23 +1,20 @@
-package br.com.mariodias.yuugen.shelves.data
+package br.com.mariodias.yuugen.shelves.data.dao
 
-import android.content.Context
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.bumptech.glide.Glide
-import dagger.hilt.android.qualifiers.ActivityContext
-import dagger.hilt.android.qualifiers.ApplicationContext
+import br.com.mariodias.yuugen.shelves.data.ShelvesEntity
 
 
 @Dao
-interface ShelvesDao {
+interface ShelvesBooksDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(book: ShelvesEntity)
 
     @Query("SELECT * FROM shelves_table")
-    fun getBookListOnShelves(): List<ShelvesEntity>
+    fun getShelvesBooks(): List<ShelvesEntity>
 
     @Query("DELETE FROM shelves_table")
     fun clearAll() =  emptyList<ShelvesEntity>()

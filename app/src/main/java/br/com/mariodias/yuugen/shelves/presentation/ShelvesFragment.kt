@@ -38,9 +38,9 @@ class ShelvesFragment : Fragment() {
             }
         }
 
-        binding.fabClearAll.setOnClickListener {
-            viewModel.clearAll(this@ShelvesFragment.requireContext())
-        }
+//        binding.fabClearAll.setOnClickListener {
+//            viewModel.clearAll(this@ShelvesFragment.requireContext())
+//        }
 
     }
 }

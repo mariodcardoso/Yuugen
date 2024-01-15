@@ -1,27 +1,33 @@
 package br.com.mariodias.yuugen.shelves.presentation
 
-import android.content.Context
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.mariodias.yuugen.shelves.data.ShelvesDao
-import br.com.mariodias.yuugen.shelves.data.ShelvesEntity
+import androidx.lifecycle.viewModelScope
+import br.com.mariodias.yuugen.shelves.data.model.ShelvesBooks
+import br.com.mariodias.yuugen.shelves.domain.repository.ShelvesBooksRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ShelvesViewModel @Inject constructor(private val shelvesDao: ShelvesDao) : ViewModel(), LifecycleObserver {
+class ShelvesViewModel @Inject constructor(private val shelvesBooksRepo: ShelvesBooksRepositoryImpl) : ViewModel(), LifecycleObserver {
 
-    private val _booksShelvesList = MutableLiveData<List<ShelvesEntity>>()
-    val bookShelvesList: LiveData<List<ShelvesEntity>>
-        get() = _booksShelvesList
+    private val _shelvesBooksList = MutableLiveData<List<ShelvesBooks>>()
+    val bookShelvesList: LiveData<List<ShelvesBooks>>
+        get() = _shelvesBooksList
 
     fun getBooksFromShelves() {
-        _booksShelvesList.postValue(shelvesDao.getBookListOnShelves())
+        viewModelScope.launch {
+            with(Dispatchers.Main) {
+                _shelvesBooksList.postValue(shelvesBooksRepo.getBooksFromShelves())
+            }
+        }
     }
 
-    fun clearAll(context: Context) {
-        _booksShelvesList.postValue(shelvesDao.clearAll())
-    }
+//    fun clearAll(context: Context) {
+//        _booksShelvesList.postValue(shelvesBooksRepo.clearAll())
+//    }
 }

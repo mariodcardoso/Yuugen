@@ -4,14 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import br.com.mariodias.yuugen.databinding.FragmentShelvesBinding
 import br.com.mariodias.yuugen.databinding.ItemBookShelvesBinding
-import br.com.mariodias.yuugen.shelves.data.ShelvesEntity
+import br.com.mariodias.yuugen.shelves.data.model.ShelvesBooks
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
-class BookShalvesAdapter(private val booksFromShelvesList: List<ShelvesEntity>) : Adapter<BookShalvesAdapter.BookShelvesViewHolder>() {
+class BookShalvesAdapter(private val booksFromShelvesList: List<ShelvesBooks>) : Adapter<BookShalvesAdapter.BookShelvesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookShelvesViewHolder {
         return BookShelvesViewHolder(
@@ -26,7 +25,7 @@ class BookShalvesAdapter(private val booksFromShelvesList: List<ShelvesEntity>) 
     }
 
     inner class BookShelvesViewHolder(private val item: ItemBookShelvesBinding) : ViewHolder(item.root) {
-        fun bind(booksFromShelvesList: ShelvesEntity) {
+        fun bind(booksFromShelvesList: ShelvesBooks) {
 
             Glide.with(this.itemView.context)
                 .load(booksFromShelvesList.thumbnail)
