@@ -29,7 +29,6 @@ class BookSearchViewModel @Inject constructor(val shelvesDao: ShelvesDao): ViewM
 
             if (result.isSuccessful) {
                 withContext(Dispatchers.Main) {
-                    Timber.i("TotalItems - ${result.body()?.totalItems}")
                     _items.postValue(result.body())
                 }
             }

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import br.com.mariodias.yuugen.R
+import androidx.recyclerview.widget.GridLayoutManager
 import br.com.mariodias.yuugen.databinding.FragmentShelvesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,8 +28,19 @@ class ShelvesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.getBooksFromShelves()
 
-        binding.txtBookShelves.text = viewModel.getBooksFromShelves().toString()
+        viewModel.bookShelvesList.observe(viewLifecycleOwner) { bookShelvesList ->
+            binding.rcvShelves.apply {
+                adapter = BookShalvesAdapter(bookShelvesList)
+                adapter?.notifyDataSetChanged()
+                layoutManager = GridLayoutManager(activity?.applicationContext, 3)
+            }
+        }
+
+        binding.fabClearAll.setOnClickListener {
+            viewModel.clearAll(this@ShelvesFragment.requireContext())
+        }
 
     }
 }
