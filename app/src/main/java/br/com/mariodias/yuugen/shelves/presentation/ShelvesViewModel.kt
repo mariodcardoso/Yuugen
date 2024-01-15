@@ -1,7 +1,9 @@
 package br.com.mariodias.yuugen.shelves.presentation
 
 import android.content.Context
+import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,13 +16,21 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ShelvesViewModel @Inject constructor(private val shelvesBooksRepo: ShelvesBooksRepositoryImpl) : ViewModel(), LifecycleObserver {
+class ShelvesViewModel @Inject constructor(private val shelvesBooksRepo: ShelvesBooksRepositoryImpl) : ViewModel(), DefaultLifecycleObserver {
 
     private val _shelvesBooksList = MutableLiveData<List<ShelvesBooks>>()
+
+
+    override fun onCreate(owner: LifecycleOwner) {
+        getBooksFromShelves()
+
+        super.onCreate(owner)
+    }
+
     val bookShelvesList: LiveData<List<ShelvesBooks>>
         get() = _shelvesBooksList
 
-    fun getBooksFromShelves() {
+    private fun getBooksFromShelves() {
         viewModelScope.launch(Dispatchers.Main) {
             _shelvesBooksList.postValue(shelvesBooksRepo.getBooksFromShelves())
         }

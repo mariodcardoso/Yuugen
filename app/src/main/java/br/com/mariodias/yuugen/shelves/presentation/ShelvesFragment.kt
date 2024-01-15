@@ -20,14 +20,14 @@ class ShelvesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        lifecycle.addObserver(viewModel)
+
         binding = FragmentShelvesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel.getBooksFromShelves()
 
         viewModel.bookShelvesList.observe(viewLifecycleOwner) { bookShelvesList ->
             binding.rcvShelves.apply {
