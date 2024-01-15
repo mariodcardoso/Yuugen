@@ -6,4 +6,6 @@ interface ShelvesBooksRepository {
 
     suspend fun getBooksFromShelves(): List<ShelvesBooks>
 
+    suspend fun clearShelves(): List<ShelvesBooks>
+
 }

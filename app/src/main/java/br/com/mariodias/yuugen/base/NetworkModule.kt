@@ -8,5 +8,5 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-
+    //Incluir o Interceptor
 }

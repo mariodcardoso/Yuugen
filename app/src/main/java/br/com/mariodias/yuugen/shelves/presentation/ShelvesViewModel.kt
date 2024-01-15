@@ -1,5 +1,6 @@
 package br.com.mariodias.yuugen.shelves.presentation
 
+import android.content.Context
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -20,14 +21,15 @@ class ShelvesViewModel @Inject constructor(private val shelvesBooksRepo: Shelves
         get() = _shelvesBooksList
 
     fun getBooksFromShelves() {
-        viewModelScope.launch {
-            with(Dispatchers.Main) {
-                _shelvesBooksList.postValue(shelvesBooksRepo.getBooksFromShelves())
-            }
+        viewModelScope.launch(Dispatchers.Main) {
+            _shelvesBooksList.postValue(shelvesBooksRepo.getBooksFromShelves())
         }
     }
 
-//    fun clearAll(context: Context) {
-//        _booksShelvesList.postValue(shelvesBooksRepo.clearAll())
-//    }
+    fun clearAll(context: Context) {
+        viewModelScope.launch(Dispatchers.Main) {
+            _shelvesBooksList.postValue(shelvesBooksRepo.clearShelves())
+        }
+    }
+
 }

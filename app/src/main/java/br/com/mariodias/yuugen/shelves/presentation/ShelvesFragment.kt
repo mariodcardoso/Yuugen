@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import br.com.mariodias.yuugen.databinding.FragmentShelvesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class ShelvesFragment : Fragment() {
 
@@ -33,14 +32,13 @@ class ShelvesFragment : Fragment() {
         viewModel.bookShelvesList.observe(viewLifecycleOwner) { bookShelvesList ->
             binding.rcvShelves.apply {
                 adapter = BookShalvesAdapter(bookShelvesList)
-                adapter?.notifyDataSetChanged()
                 layoutManager = GridLayoutManager(activity?.applicationContext, 3)
             }
         }
 
-//        binding.fabClearAll.setOnClickListener {
-//            viewModel.clearAll(this@ShelvesFragment.requireContext())
-//        }
+        binding.fabClearAll.setOnClickListener {
+            viewModel.clearAll(this@ShelvesFragment.requireContext())
+        }
 
     }
 }
