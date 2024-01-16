@@ -2,6 +2,8 @@ package br.com.mariodias.yuugen.base
 
 import android.content.Context
 import androidx.room.Room
+import br.com.mariodias.yuugen.readinghistory.data.ReadingHistoryDao
+import br.com.mariodias.yuugen.readinghistory.domain.repository.ReadingHistoryRepositoryImpl
 import br.com.mariodias.yuugen.shelves.data.dao.ShelvesBooksDao
 import br.com.mariodias.yuugen.shelves.domain.repository.ShelvesBooksRepository
 import br.com.mariodias.yuugen.shelves.domain.repository.ShelvesBooksRepositoryImpl
@@ -43,6 +45,10 @@ class DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideShelvesBooksRepository(shelvesBooksDao: ShelvesBooksDao) = ShelvesBooksRepositoryImpl(shelvesBooksDao)
+    fun provideShelvesBooksRepository(dao: ShelvesBooksDao) = ShelvesBooksRepositoryImpl(dao)
+
+    @Provides
+    @Singleton
+    fun provideReadingHistoryRepository(dao: ReadingHistoryDao) = ReadingHistoryRepositoryImpl(dao)
 
 }
