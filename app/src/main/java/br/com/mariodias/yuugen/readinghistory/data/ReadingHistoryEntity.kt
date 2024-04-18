@@ -26,7 +26,7 @@ data class ReadingHistoryEntity(
     val readingDate: String
 )
 
-fun ReadingHistory.toReadingHistory(): ReadingHistoryEntity {
+fun ReadingHistory.toReadingHistoryEntity(): ReadingHistoryEntity {
     return ReadingHistoryEntity(
         bookId = this.bookId,
         insights = this.insights,

@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class BookSearchViewModel @Inject constructor(
     val shelvesBooksDao: ShelvesBooksDao,
-    val api: BookApi
+    api: BookApi
 ) : ViewModel() {
 
     private val service = BookSearchResultService(api)
