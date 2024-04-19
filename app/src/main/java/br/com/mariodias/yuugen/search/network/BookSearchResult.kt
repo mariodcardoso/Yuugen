@@ -35,7 +35,10 @@ data class VolumeInfo(
     val publishedDate: String? = " ",
 
     @SerializedName("imageLinks")
-    val imagesLinks: ImageLinks?
+    val imagesLinks: ImageLinks?,
+
+    @SerializedName("description")
+    val description: String? = " "
 )
 
 data class ImageLinks(

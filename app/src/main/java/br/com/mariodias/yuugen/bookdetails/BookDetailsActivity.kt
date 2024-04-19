@@ -1,22 +1,22 @@
 package br.com.mariodias.yuugen.bookdetails
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import br.com.mariodias.yuugen.R
-import br.com.mariodias.yuugen.databinding.FragmentBookDetailsBinding
+import androidx.fragment.app.Fragment
+import br.com.mariodias.yuugen.databinding.ActivityBookDetailsBinding
 
-class BookDetailsFragment : Fragment() {
+class BookDetailsActivity : Fragment() {
 
-    private lateinit var binding: FragmentBookDetailsBinding
+    private lateinit var binding: ActivityBookDetailsBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentBookDetailsBinding.inflate(inflater, container, false)
+        binding = ActivityBookDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView.OnQueryTextListener
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.mariodias.yuugen.databinding.FragmentBookSearchBinding
+import br.com.mariodias.yuugen.search.network.BookDetails
 import br.com.mariodias.yuugen.shelves.data.ShelvesEntity
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class BookSearchFragment : Fragment(), OnBookSearchClickListener {
@@ -46,8 +49,14 @@ class BookSearchFragment : Fragment(), OnBookSearchClickListener {
     override fun onAddBookClick(bookInfo: ShelvesEntity) {
         viewModel.addBookOnShelves(bookInfo)
     }
+
+    override fun onBookClick(bookSearchResultData: BookDetails) {
+
+    }
+
 }
 
 interface OnBookSearchClickListener {
-    fun onAddBookClick(title: ShelvesEntity)
+    fun onAddBookClick(bookInfo: ShelvesEntity)
+    fun onBookClick(bookSearchResultData: BookDetails)
 }

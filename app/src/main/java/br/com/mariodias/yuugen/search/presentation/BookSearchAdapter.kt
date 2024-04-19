@@ -58,9 +58,13 @@ class BookSearchAdapter(
                     isFavorite = false
                 )
 
-
                 listener.onAddBookClick(bookInfo)
             }
+
+            item.root.setOnClickListener{
+                listener.onBookClick(bookSearchResultData)
+            }
+
 
         }
     }
