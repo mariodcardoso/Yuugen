@@ -1,25 +1,30 @@
 package br.com.mariodias.yuugen.search.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView.OnQueryTextListener
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.mariodias.yuugen.bookdetails.BookDetailsActivity
+import br.com.mariodias.yuugen.bookdetails.BookDetailsActivity.Companion.BOOK_DETAILS
 import br.com.mariodias.yuugen.databinding.FragmentBookSearchBinding
 import br.com.mariodias.yuugen.search.network.BookDetails
 import br.com.mariodias.yuugen.shelves.data.ShelvesEntity
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
+import java.io.Serializable
 
 @AndroidEntryPoint
-class BookSearchFragment : Fragment(), OnBookSearchClickListener {
+class BookSearchFragment : Fragment(), OnBookSearchClickListener, Serializable {
 
     private lateinit var binding: FragmentBookSearchBinding
     private val viewModel by viewModels<BookSearchViewModel>()
+
+    private val navController by lazy { findNavController() }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentBookSearchBinding.inflate(inflater, container, false)
@@ -51,7 +56,12 @@ class BookSearchFragment : Fragment(), OnBookSearchClickListener {
     }
 
     override fun onBookClick(bookSearchResultData: BookDetails) {
-
+        context?.let {
+            startActivity(
+                BookDetailsActivity.getStartIntent(it)
+                    .putExtra(BOOK_DETAILS, bookSearchResultData)
+            )
+        }
     }
 
 }

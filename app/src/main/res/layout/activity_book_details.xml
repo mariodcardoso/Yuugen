@@ -1,50 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".bookdetails.BookDetailsActivity">
+    android:background="@color/surface">
 
-    <TextView
-        android:id="@+id/txt_book_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-
-        android:text="@string/hello_blank_fragment"
-        android:textSize="@dimen/h4" />
-
-    <TextView
-        android:id="@+id/txt_book_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:textSize="@dimen/h6" />
-
-    <TextView
-        android:id="@+id/txt_book_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/hello_blank_fragment"
-        android:textSize="@dimen/caption" />
-
-    <ImageView
-        android:id="@+id/img_book_cover"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/placeholder_book_cover" />
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".bookdetails.BookDetailsActivity">
 
-    <TextView
-        android:id="@+id/txt_book_summary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/lorem_ipsum" />
+        <TextView
+            android:id="@+id/txt_book_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/hello_blank_fragment"
+            android:textAlignment="center"
+            android:textSize="@dimen/h4" />
+
+        <TextView
+            android:id="@+id/txt_book_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/hello_blank_fragment"
+            android:textSize="@dimen/subtitle1" />
+
+        <ImageView
+            android:id="@+id/img_book_cover"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/placeholder_book_cover" />
+
+        <RatingBar
+            android:id="@+id/book_rating"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressTint="@color/tertiaryColor" />
+
+        <TextView
+            android:id="@+id/txt_book_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:justificationMode="inter_word"
+            android:text="@string/lorem_ipsum" />
 
 
-</LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,6 +1,8 @@
 package br.com.mariodias.yuugen.search.network
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class BookSearchResult(
@@ -9,12 +11,11 @@ data class BookSearchResult(
 
     @SerializedName("items")
     val items: List<BookDetails>,
-) {
+) : Serializable {
 
     fun getBookList() = items.sortedBy { it.volumeInfo.publishedDate }
 
 }
-
 
 data class BookDetails(
     @SerializedName("id")
@@ -22,7 +23,7 @@ data class BookDetails(
 
     @SerializedName("volumeInfo")
     val volumeInfo: VolumeInfo
-)
+) : Serializable
 
 data class VolumeInfo(
     @SerializedName("title")
@@ -38,8 +39,14 @@ data class VolumeInfo(
     val imagesLinks: ImageLinks?,
 
     @SerializedName("description")
-    val description: String? = " "
-)
+    val description: String? = " ",
+
+    @SerializedName("averageRating")
+    val averageRating: Float = 0.0F,
+
+    @SerializedName("ratingsCount")
+    val ratingsCount: Int = 0,
+) : Serializable
 
 data class ImageLinks(
     @SerializedName("thumbnail")
@@ -48,4 +55,4 @@ data class ImageLinks(
     @SerializedName("smallThumbnail")
     val smallThumbnail: String
 
-)
+) : Serializable

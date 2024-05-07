@@ -3,6 +3,7 @@ package br.com.mariodias.yuugen
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import br.com.mariodias.yuugen.databinding.ActivityMainBinding
 import br.com.mariodias.yuugen.home.presentation.HomeFragment
 import br.com.mariodias.yuugen.search.presentation.BookSearchFragment

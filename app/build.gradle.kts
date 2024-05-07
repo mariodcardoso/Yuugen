@@ -54,6 +54,7 @@ dependencies {
 
     //Hilt
     implementation("com.google.dagger:hilt-android:2.48")
+    implementation("androidx.activity:activity:1.8.0")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
 
     //Moshi
